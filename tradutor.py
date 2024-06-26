@@ -27,8 +27,11 @@ def main():
             print("Ok! Digite abaixo o que você quer registrar em português e inglês:")
             registerpt = input("português: ").strip()
             registeren = input("inglês: ").strip()
-            banco_de_palavras[registerpt] = registeren
-            print(f"Palavra '{registerpt}' registrada com sucesso!")
+            with open('portugues.txt', 'a') as arquivopt, open('ingles.txt', 'a') as arquivoen:
+                arquivopt.write(f"{registerpt}\n")
+                arquivoen.write(f"{registeren}\n")
+                banco_de_palavras[registerpt] = registeren
+                print(f"Palavra '{registerpt}' registrada com sucesso!")
         elif acao == '3':
             print("Encerrando o programa...")
             break
